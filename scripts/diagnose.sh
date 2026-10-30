@@ -21,7 +21,7 @@ done
 echo
 echo "== PHP warnings / notices =="
 : > "$LOG"   # start from a clean log, then exercise WordPress + GraphQL
-out=$(wp eval '
+out=$(wp --user=admin eval '
   do_action( "wp_loaded" );
   $r = graphql( [ "query" => "{ __type(name: \"HceProductData\") { name } hceBrand: __type(name: \"HceBrand\") { name } }" ] );
   echo wp_json_encode( $r ), "\n";
