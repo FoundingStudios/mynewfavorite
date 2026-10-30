@@ -1,0 +1,14 @@
+{
+  "name": "Headless WP + WooCommerce",
+  "image": "mcr.microsoft.com/devcontainers/php:8.2",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "lts" },
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "forwardPorts": [8080],
+  "portsAttributes": {
+    "8080": { "label": "WordPress", "onAutoForward": "notify" }
+  },
+  "postCreateCommand": "bash scripts/setup.sh",
+  "postStartCommand": "sudo service mariadb start || sudo service mysql start || true"
+}
