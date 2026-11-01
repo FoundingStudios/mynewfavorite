@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@source "../";
+
+/* Brand colors and fonts: edit here to rebrand, then run `npm run build`. */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, "Helvetica Neue", Arial, sans-serif;
+  --color-brand-50:  #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-600: #1d4ed8;
+  --color-brand-700: #1e40af;
+  --color-brand-900: #172554;
+  --color-accent-50:  #fef2f2;
+  --color-accent-600: #dc2626;
+  --color-accent-700: #b91c1c;
+}
+
+/* WooCommerce-generated buttons and fields (add to cart, checkout, account) */
+@layer components {
+  .single_add_to_cart_button, .wp-element-button, a.button, button.button {
+    @apply cursor-pointer rounded-full bg-accent-600 px-8 py-3.5 font-bold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-accent-700 hover:shadow-lg active:scale-95;
+  }
+  .variations select, .quantity input, .woocommerce input[type="text"], .woocommerce input[type="email"], .woocommerce input[type="password"] {
+    @apply rounded-lg border border-gray-200 px-3 py-2 transition-colors duration-300 focus:border-brand-600 focus:outline-none;
+  }
+  .variations th { @apply pr-4 text-left font-medium; }
+  .variations td { @apply pb-4; }
+}
